@@ -8,6 +8,21 @@
 	
 	<link href="../views/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="../views/css/screen.css" rel="stylesheet" type="text/css">
+	
+	<?php
+	
+	//include scripts as specified by the current controller
+	if($_GET['controller'] = 'quote' && $_GET['method'] = 'create'){
+		
+		//include the validation script
+		?>
+		<script src="../views/quote/formHelper.js"></script> 
+		<script src="../views/quote/validate.js"></script>
+		<?php
+	}
+	
+	?>
+	
 </head>
 <body>
 	<h1>InkFrog</h1>

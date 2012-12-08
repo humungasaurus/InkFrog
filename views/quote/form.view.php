@@ -66,6 +66,7 @@
 	<div id="quote_button_container" class="form-field-container">
 		<button onclick="getQuote()">get quote</button>
 	</div>
+	<div id="quote_value_container"></div>
 	
 </div>
 <!-- END Quote Form Markup-->

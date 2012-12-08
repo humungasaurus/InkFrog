@@ -8,6 +8,7 @@ body{
 #quote_form_container{
 	width:500px;
 	margin: 0 auto;
+	border:1px solid #eee;
 }
 #quote_form .form-field-container{
 	width:100%;
