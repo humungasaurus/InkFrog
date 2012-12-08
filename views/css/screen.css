@@ -1,0 +1,31 @@
+/*SET SOME DEFAULTS*/
+body{
+	font-family:Arial, helvetica, sans-serif;
+	font-color:#444;
+}
+
+/*BEGIN QUOTE FORM*/
+#quote_form_container{
+	width:500px;
+	margin: 0 auto;
+}
+#quote_form .form-field-container{
+	width:100%;
+	margin:10px 0 0 0;
+}
+#quote_form .form-field-container label{
+	float:left;
+	width:190px;
+}
+#quote_form .form-field-container input.text-input{
+
+	width:300px;
+}
+#shirt_gender_container, #shirt_color_container, #shirt_model_container, #shirt_type_container{
+	display:none;
+}
+
+#quote_form .error{
+	color: red;
+}  
+/*END QUOTE FORM*/
