@@ -66,10 +66,8 @@ function getQuote(){
 	
 	//first check that all inputs are entered
 	if(validateForm()){
-		console.log("inputs not valid");
 		return;
 	}else{
-		console.log("inputs valid");
 		
 		//now we actually get to quote
 		url = '../models/quote/getQuote.php?' 
@@ -84,17 +82,12 @@ function getQuote(){
 				url,
 				function(data){
 
-					$('#quote_value_container').empty();
-					$('#quote_value_container').append("<ul>");	
+					$('#quote_value_container ul').empty();
 					
 					for(var i=0; i<data.length; i++){
-						$('#quote_value_container').append("<li><strong>" + data[i][1] + ":</strong> $" + data[i][2] + "</li>");
+						$('#quote_value_container ul').append("<li><strong>" + data[i][1] + ":</strong> $" + data[i][2] + "</li>");
 					}
-													
-					$('#quote_value_container').append("</ul>");	
+														
 			});
-	}
-	
-	
-	
+	}	
 }

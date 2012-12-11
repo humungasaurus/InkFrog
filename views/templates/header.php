@@ -6,8 +6,12 @@
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	
+	<!--stylesheets-->
 	<link href="../views/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="../views/css/screen.css" rel="stylesheet" type="text/css">
+	
+	<!--import font face-->
+	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
 	
 	<?php
 	
@@ -25,4 +29,3 @@
 	
 </head>
 <body>
-	<h1>InkFrog</h1>
