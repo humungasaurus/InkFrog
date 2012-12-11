@@ -21,7 +21,7 @@
 		
 			<div id="quantity_container" class="form-field-container">
 				<label for="quantity" id="quantity_label">Quantity</label>
-				<input type="text" name="quantity" class="text-input" id="quantity" value="0" />
+				<input type="text" name="quantity" class="text-input" id="quantity" value="12" />
 			</div>
 		
 			<div id="front_color_container" class="form-field-container">
