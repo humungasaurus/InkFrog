@@ -10,6 +10,12 @@
 	<link href="../views/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="../views/css/screen.css" rel="stylesheet" type="text/css">
 	
+	<!--[if !IE 7]>
+		<style type="text/css">
+			#wrap {display:table;height:100%}
+		</style>
+	<![endif]-->
+	
 	<!--import font face-->
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
 	
@@ -29,3 +35,8 @@
 	
 </head>
 <body>
+	
+	<div id="wrap">
+	
+		<div id="main">
+
