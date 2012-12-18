@@ -25,7 +25,14 @@ while($r = mysql_fetch_assoc($result)){
 	}
 	
 	array_push($quotes, $tmp);
+	
 }
+
+//print quantities for debugging
+/*foreach($quotes as $q){
+	echo 'Printer: ' . $q[1] . ', Quantity: ' . $q[2] . '<br />';
+}
+echo '<br />';*/
 //BASE COUNTS ESTABLISHED
 
 //ADD PRICING FOR BLANKS
@@ -42,8 +49,22 @@ while($r = mysql_fetch_assoc($result)){
 	$colorPriceLevel = $r['PRICE_LEVEL'];
 }
 
+//debugging
+//echo 'Color Price Level: ' . $colorPriceLevel . '<br /><br />';
+
+$sql = sprintf("SELECT MAX(MODEL_ID) AS MODEL_ID FROM M_TYPE_MODEL WHERE SHIRT_TYPE_ID = %s",
+	mysql_real_escape_string($_GET['shirtModel']));
+	
+$result = mysql_query($sql);
+if(!result){
+	die('Invalid query: ' . mysql.error());
+}
+while($r = mysql_fetch_assoc($result)){
+	$shirtType = $r['MODEL_ID'];
+}
+
 $sql = sprintf("SELECT UNIT_PRICE FROM F_SHIRT_MODEL_PRICING WHERE MODEL_ID=%s AND PRICE_LEVEL=%s", 
-	mysql_real_escape_string($_GET['shirtModel']),
+	mysql_real_escape_string($shirtType),
 	mysql_real_escape_string($colorPriceLevel));
 	
 $result = mysql_query($sql);
@@ -56,9 +77,20 @@ while($r = mysql_fetch_assoc($result)){
 	$blankPrice = $r['UNIT_PRICE'];
 }
 
+//debugging
+//echo 'Blank Cost: ' . $blankPrice . '<br /><br />';
+
+//this actually adds the blank price; result should be total cost of blanks
 foreach($quotes as &$q){
 	$q[2] = $q[2] * $blankPrice;
 }
+
+//print the blank costs for debugging
+/*foreach($quotes as $q){
+	echo 'Printer: ' . $q[1] . ', Blank Cost: ' . $q[2] . '<br />';
+}
+echo '<br />';*/
+
 //BLANK PRICE ESTABLISHED
 
 //ADD PRICING FOR BASE PRINT COST
@@ -83,13 +115,30 @@ while($r = mysql_fetch_assoc($result)){
 			if($_GET['backColors']>0) $printLocations+=1;
 			if($_GET['sleeveColors']>0) $printLocations+=1;
 			
+			//debugging
+			//echo 'Printer: ' . $q[1];
+			//echo ', Print Locations: ' . $printLocations;
+			//echo ', Unit Print Cost: ' . $r['UNIT_PRICE'];
+			
 			//add in the price
 			$basePrintPrice = $_GET['quantity'] * ($r['UNIT_PRICE'] * $printLocations);
+			
+			//debugging
+			//echo ', Print Cost: ' . $basePrintPrice . '<br />';
+			
 			$q[2] += $basePrintPrice;
 			unset($printLocations);
 		}
 	}
 }
+
+//print the new costs with print pricing for debugging
+/*echo '<br />';
+foreach($quotes as $q){
+	echo 'Printer: ' . $q[1] . ', Blanks + Print: ' . $q[2] . '<br />';
+}
+echo '<br />';*/
+
 //BASE PRINT COST ESTABLISHED
 
 //ADD PRICING FOR EACH COLOR
@@ -108,12 +157,23 @@ while($r = mysql_fetch_assoc($result)){
 	foreach($quotes as &$q){
 		if($q[0] == $r['PRINTER_ID']){
 			
-			//get the number of colors
-			$numColors = $_GET['frontColors'] + $_GET['backColors'] + $_GET['sleeveColors'];
+			//get the number of additional colors
+			if($_GET['frontColors'] > 1)
+				$numColors = $_GET['frontColors'] - 1;
+			if($_GET['backColors'] > 1)
+				$numColors += $_GET['backColors'] - 1;
+			if($_GET['sleeveColors'] > 1)
+				$numColors += $_GET['backColors'] - 1;
 			
 			//add in the price 
 			$colorPrintPrice = $_GET['quantity'] * ($r['UNIT_PRICE'] * $numColors);
 			$q[2] += $colorPrintPrice;
+			
+			//debugging
+			//echo 'Printer: ' . $q[1] . ', Additional Color Price: ' . $colorPrintPrice . '<br />';
+			
+			unset($numColors);
+			unset($colorPrintPrice);
 			
 		}
 	}
