@@ -7,9 +7,9 @@ if (!$con) {
 }
 
 //select db
-$db_selected = mysql_select_db('sbpress_quotetool_dev', $con);
+$db_selected = mysql_select_db('InkFrog', $con);
 if (!$db_selected) {
-    die ('Can\'t use sbpress_quotetool_dev : ' . mysql_error());
+    die ('Can\'t use InkFrog : ' . mysql_error());
 }
 
 ?>

@@ -24,7 +24,47 @@
 				<input type="text" name="quantity" class="text-input" id="quantity" value="12" />
 			</div>
 		
-			<div id="front_color_container" class="form-field-container">
+			<div id="color_container" class="form-field-container">
+				<label for="front_colors" id="front_colors_label"># of Colors</label>
+				<div class="styled-select narrow">
+					<select name="front_colors" id="front_colors" class="color-selector">
+						<option value="">front</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+					</select>
+				</div>
+				<div class="styled-select narrow">
+					<select name="back_colors" id="back_colors" class="color-selector">
+						<option value="">back</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+					</select>
+				</div>
+				<div class="styled-select narrow sleeve">
+					<select name="sleeve_colors" id="sleeve_colors" class="color-selector sleeve">
+						<option value="">sleeve</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+					</select>
+				</div>
+			</div>
+		
+			<!--<div id="front_color_container" class="form-field-container">
 				<label for="front_colors" id="front_colors_label"># of Front Colors</label>
 				<input type="text" name="front_colors" class="text-input" id="front_colors" value="1" />
 			</div>
@@ -37,7 +77,7 @@
 			<div id="sleeve_colors_container" class="form-field-container">
 				<label for="sleeve_colors" id="back_colors_label"># of Sleeve Colors</label>
 				<input type="text" name="sleeve_colors" class="text-input" id="sleeve_colors" value="0" />
-			</div>
+			</div>-->
 		
 			<div id="shirt_type_container" class="form-field-container">
 				<label for="shirt_type" id="shirt_type_label">Shirt Type</label>
@@ -46,12 +86,12 @@
 				</div>
 			</div>
 		
-			<div id="shirt_model_container" class="form-field-container">
+			<!--<div id="shirt_model_container" class="form-field-container">
 				<label for="shirt_model" id="shirt_model_label">Shirt Model</label>
 				<div class="styled-select">
 					<select name="shirt_model" id="shirt_model"></select>
 				</div>
-			</div>
+			</div>-->
 		
 			<div id="shirt_color_container" class="form-field-container">
 				<label for="shirt_color" id="shirt_color_label">Shirt Color</label>
@@ -60,21 +100,25 @@
 				</div>
 			</div>
 		
-			<div id="shirt_gender_container" class="form-field-container">
+			<!--<div id="shirt_gender_container" class="form-field-container">
 				<label for="shirt_gender" id="shirt_gender_label">Shirt Gender</label>
 				<select name="shirt_gender" id="shirt_gender"></select>
-			</div>
+			</div>-->
 		
 		</form>
 		<div id="quote_button_container" class="form-field-container">
-			<button onclick="getQuote()" class="subtle_gradient shadow">get quote</button>
+			<button onclick="resetForm()" class="subtle_gradient shadow-light">reset form</button>
+			<button onclick="getQuote()" class="subtle_gradient shadow-light">get quote</button>
 		</div>
+		
 	</div>
 	
 	<div id="result_wrapper" class="rounded-corners shadow">
 		<div id="quote_value_container">
 			<h1>2. Get a quote:</h1>
-			<ul></ul>
+			<ul>
+				<li>Please complete the form to the left.</li>
+			</ul>
 		</div>
 	</div>
 </div>

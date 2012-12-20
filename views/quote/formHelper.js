@@ -11,9 +11,19 @@ $(document).ready(function(){
 	//update the Shirt Color dropdown based on Shirt Type selection
 	$('#shirt_type').change(function() {
 		loadShirtColors($('#shirt_type').val());
+		loadShirtAddons($('#shirt_type').val());
 	});
 
 });
+
+function loadShirtAddons(){
+	$.getJSON(
+		'../models/quote/getShirtTypes.php',
+		function(data){
+			
+		}
+	);
+}
 
 function loadShirtTypes() {
 	$.getJSON(
@@ -84,10 +94,29 @@ function getQuote(){
 
 					$('#quote_value_container ul').empty();
 					
-					for(var i=0; i<data.length; i++){
-						$('#quote_value_container ul').append("<li><strong>" + data[i][1] + ":</strong> $" + data[i][2] + "</li>");
+					//figure out the lowest quote
+					var lowestQuote = data[0][2]; 
+					for(var i=1; i<data.length; i++){
+						if(data[i][2] < lowestQuote){
+							lowestQuote = data[i][2];
+						}
 					}
+					
+					var unitPrice = parseFloat(lowestQuote/$('#quantity').val());
+					unitPrice = unitPrice.toFixed(2);
+					
+					$('#quote_value_container ul').append("<li><strong>Total Cost: $</strong>" + lowestQuote + " ($" + unitPrice + " per shirt)</li>");
+					
+					/*for(var i=0; i<data.length; i++){
+						$('#quote_value_container ul').append("<li><strong>" + data[i][1] + ":</strong> $" + data[i][2] + "</li>");
+					}*/
 														
 			});
-	}	
+	}
+	
+	return false;	
+}
+function resetForm()
+{
+	document.getElementById("quote_form").reset();
 }

@@ -14,5 +14,3 @@ while($r = mysql_fetch_assoc($result)) {
     $rows[] = $r;
 }
 print json_encode($rows);
-
-?>

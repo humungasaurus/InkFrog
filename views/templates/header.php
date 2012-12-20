@@ -39,4 +39,21 @@
 	<div id="wrap">
 	
 		<div id="main">
+				
+			<div id="header_wrapper"><div id="header_inner" class="">
+			
+				<div id="logo">
+					<h2>InkFrog</h2>
+				</div>
+				
+				<div id="navigation" ><div id="navigation-inner" class="rounded-corners shadow">
+					<ul>
+						<li class="first"><a href="#">Get a Quote</a></li>
+						<li><a href="#">What We Do</a></li>
+						<li class="last"><a href="#">Examples of Past Work</a></li>
+					</ul>
+				</div></div>
+			
+			</div></div>
+			<div id="content">
 

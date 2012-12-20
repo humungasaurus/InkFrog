@@ -1,8 +1,10 @@
+			</div><!--END CONTENT-->
+			
 		</div> <!--END MAIN-->
 
 	</div> <!--END WRAP-->
 	
-	<div id="footer">
+	<div id="footer" class="shadow">
 	</div>
 	
 </body>
