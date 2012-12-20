@@ -55,6 +55,7 @@ foreach($rows as $w){
 		$tmpParent = array(
 			'ADDON_ID' => $w['ADDON_ID'],
 			'ADDON_DESC' => $w['ADDON_DESC'],
+			'HAS_CHILD' => $w['HAS_CHILD'],
 			'CHILDREN' => $tmpChildren
 		);
 		array_push($result_string, $tmpParent);
@@ -68,4 +69,3 @@ foreach($rows as $w){
 }
 
 print json_encode($result_string);
-?>

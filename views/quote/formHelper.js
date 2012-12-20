@@ -16,13 +16,42 @@ $(document).ready(function(){
 
 });
 
-function loadShirtAddons(){
+function loadShirtAddons(shirtTypeId){
+	
+	var url = '../models/quote/getShirtAddons.php?shirtTypeId=' + shirtTypeId;
 	$.getJSON(
-		'../models/quote/getShirtTypes.php',
+		url,
 		function(data){
 			
-		}
-	);
+			$('#shirt_addon_container').empty();
+			
+			if(JSON.stringify(data) != "[]"){
+				
+				for(var i=0; i<data.length; i++){
+		
+					$('#shirt_addon_container').append('<div id="shirt_addon_' + data[i].ADDON_DESC + '_container" class="form-field-container">' 
+						+ '<label for="shirt_addon_' + data[i].ADDON_DESC + '" id="shirt_addon_' + data[i].ADDON_DESC + '_label">' 
+						+ data[i].ADDON_DESC 
+						+ '</label>'
+						+ '<div class="styled_select"'
+						+ '<select id="' + data[i].ADDON_DESC + '_addon" name="' + data[i].ADDON_DESC + '_addon"></select>'
+						+ '</div></div>');
+					
+					if(data[i].HAS_CHILD == 'Y'){
+						
+					}else{
+						
+						$('#' + data[i].ADDON_DESC + '_addon').append(
+							'<option value="0">no</option>'
+							+ '<option value="1">yes</option>'
+						);
+					}
+				}
+				$('#shirt_addon_container').css('display', 'block');
+			}else{
+				$('#shirt_addon_container').css('display', 'none');
+			}
+	});
 }
 
 function loadShirtTypes() {

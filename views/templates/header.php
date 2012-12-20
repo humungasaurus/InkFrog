@@ -43,7 +43,7 @@
 			<div id="header_wrapper"><div id="header_inner" class="">
 			
 				<div id="logo">
-					<h2>InkFrog</h2>
+					<h2>SBpress</h2>
 				</div>
 				
 				<div id="navigation" ><div id="navigation-inner" class="rounded-corners shadow">

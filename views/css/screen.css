@@ -262,4 +262,15 @@ select.color-selector.sleeve{
 #quote_value_container li strong{
 	font-weight:600;
 }  
+#shirt_addon_container{
+	display:none;
+	width:290px;
+}
+#shirt_addon_container label{
+	padding:none;
+	float:left;
+}
+#shirt_addon_container input{
+	float:left;
+}
 /*END QUOTE FORM*/

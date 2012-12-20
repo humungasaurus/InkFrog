@@ -99,6 +99,8 @@
 					<select name="shirt_color" id="shirt_color"></select>
 				</div>
 			</div>
+			
+			<div id="shirt_addon_container"></div>
 		
 			<!--<div id="shirt_gender_container" class="form-field-container">
 				<label for="shirt_gender" id="shirt_gender_label">Shirt Gender</label>
