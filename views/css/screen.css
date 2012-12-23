@@ -20,8 +20,8 @@ ul{
 }
 
 .shadow{
-	-webkit-box-shadow:  0px 0px 5px 5px rgba(0, 0, 0, .10);
-	box-shadow:  0px 0px 20px 0px rgba(0, 0, 0, .10);
+	-webkit-box-shadow:  0px 0px 5px 5px rgba(0, 0, 0, .0);
+	box-shadow:  0px 0px 20px 0px rgba(0, 0, 0, .0);
 }
 .shadow-light{
 	-webkit-box-shadow:  0px 0px 5px 5px rgba(0, 0, 0, .05);
@@ -96,15 +96,15 @@ body:before {/* thanks to Maleika (Kohoutec)*/
 	background: #27272b;
 }
 #navigation-inner{
-	background: #f5f5fa;
 	padding:0px 1px;
 }
 #navigation-inner ul{
 }
 #navigation-inner ul li{
 	float: left;
-	margin: 6px 4px;
-	background:#e1e1e6;
+	margin: 0 1px;
+	background:rgba(225,225,230,.75);
+	border: 1px solid rgba(240,240,240,.25);
 }
 #navigation-inner ul li a{
 	display: block;
@@ -114,7 +114,7 @@ body:before {/* thanks to Maleika (Kohoutec)*/
 	padding:10px 30px;
 }
 #navigation-inner ul li.first{
-	background: #ffc000;
+	background: rgba(255,192,0,.85);
 	-webkit-border-top-left-radius: 8px;
 	-webkit-border-bottom-left-radius: 8px;
 	-moz-border-radius-topleft: 8px;
@@ -129,6 +129,7 @@ body:before {/* thanks to Maleika (Kohoutec)*/
 	-moz-border-radius-bottomright: 8px;
 	border-top-right-radius: 8px;
 	border-bottom-right-radius: 8px;
+	margin-right: 0;
 }
 /*GENERAL FORM STYLING*/
 label{
@@ -142,14 +143,14 @@ input.text-input{
 	height:30px;
 	border: 1px solid #ddd;
 	background: rgb(245,245,245);
-	background: rgba(245,245,245,.5);
+	background: rgba(245,245,245,.75);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	padding-left:10px;	
 }
 input.text-input:focus{
-	background:#fff;
+	background: #fff;
 }
 button{
 	height:40px;
@@ -164,6 +165,7 @@ button{
 	padding: 0px 15px 4px;
 	cursor:pointer;
 	outline:none;
+	margin:0 10px 0 0;
 }
 button::-moz-focus-inner, select::-moz-focus-inner {
   border: 0;
@@ -186,7 +188,7 @@ select{
 	width: 300px;
 	height: 34px;
 	overflow: hidden;
-	background: url(../assets/images/select-arrow.png) no-repeat right rgba(245,245,245,.5);;
+	background: url(../assets/images/select-arrow.png) no-repeat right rgba(245,245,245,.75);
 	border: 1px solid #ddd;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -222,16 +224,16 @@ select.color-selector.sleeve{
 	width:500px;
 	float:left;
 	padding: 15px;
-	margin-right:46px;
-	border: 1px solid rgba(240,240,240,.5);
-	background:#f5f5fa;
+	margin-right:26px;
+	border: 1px solid rgba(240,240,240,.25);
+	background: rgba(225,225,230,.75);;
 }
 #result_wrapper{
-	width:350px;
+	width:370px;
 	float:left;
 	padding:15px;
-	border: 1px solid rgba(240,240,240,.5);
-	background: #f5f5fa;
+	border: 1px solid rgba(240,240,240,.25);
+	background: rgba(225,225,230,.75);
 }
 #quote_form .form-field-container{
 	width:100%;
@@ -264,7 +266,6 @@ select.color-selector.sleeve{
 }  
 #shirt_addon_container{
 	display:none;
-	width:290px;
 }
 #shirt_addon_container label{
 	padding:none;
@@ -272,5 +273,15 @@ select.color-selector.sleeve{
 }
 #shirt_addon_container input{
 	float:left;
+}
+#quote_mailer_container{
+	display: none;
+}
+
+#quote_mailer_container button{
+	width: 100%;
+	float: left;
+	margin: 15px 0 0 0;
+	font-size: 19px;
 }
 /*END QUOTE FORM*/

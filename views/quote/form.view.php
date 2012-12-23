@@ -6,18 +6,18 @@
 		
 			<div id="name_container" class="form-field-container">
 				<label for="name" id="name_label">Name</label>
-				<input type="text" name="name" class="text-input" value="" />
+				<input type="text" name="name" class="text-input" value="" id="name"/>
 			</div>
 		
 			<div id"email_container" class="form-field-container">
 				<label for="email" id="email_label">Email</label>
-				<input type="text" name="email" class="text-input" value="" />
+				<input type="text" name="email" class="text-input" value="" id="email"/>
 			</div>
 		
-			<div id="zip_container" class="form-field-container">
+			<!--<div id="zip_container" class="form-field-container">
 				<label for="zip" id="zip_label">ZIP Code</label>
 				<input type="text" name="zip" class="text-input" value="" />
-			</div>
+			</div>-->
 		
 			<div id="quantity_container" class="form-field-container">
 				<label for="quantity" id="quantity_label">Quantity</label>
@@ -27,7 +27,7 @@
 			<div id="color_container" class="form-field-container">
 				<label for="front_colors" id="front_colors_label"># of Colors</label>
 				<div class="styled-select narrow">
-					<select name="front_colors" id="front_colors" class="color-selector">
+					<select name="front_colors" id="front_colors" class="color-selector select">
 						<option value="">front</option>
 						<option value="0">0</option>
 						<option value="1">1</option>
@@ -39,7 +39,7 @@
 					</select>
 				</div>
 				<div class="styled-select narrow">
-					<select name="back_colors" id="back_colors" class="color-selector">
+					<select name="back_colors" id="back_colors" class="color-selector select">
 						<option value="">back</option>
 						<option value="0">0</option>
 						<option value="1">1</option>
@@ -51,7 +51,7 @@
 					</select>
 				</div>
 				<div class="styled-select narrow sleeve">
-					<select name="sleeve_colors" id="sleeve_colors" class="color-selector sleeve">
+					<select name="sleeve_colors" id="sleeve_colors" class="color-selector sleeve select">
 						<option value="">sleeve</option>
 						<option value="0">0</option>
 						<option value="1">1</option>
@@ -82,7 +82,7 @@
 			<div id="shirt_type_container" class="form-field-container">
 				<label for="shirt_type" id="shirt_type_label">Shirt Type</label>
 				<div class="styled-select">
-					<select name="shirt_type" id="shirt_type"></select>
+					<select name="shirt_type" id="shirt_type" class="select"></select>
 				</div>
 			</div>
 		
@@ -96,7 +96,7 @@
 			<div id="shirt_color_container" class="form-field-container">
 				<label for="shirt_color" id="shirt_color_label">Shirt Color</label>
 				<div class="styled-select">
-					<select name="shirt_color" id="shirt_color"></select>
+					<select name="shirt_color" id="shirt_color" class="select"></select>
 				</div>
 			</div>
 			
@@ -121,6 +121,9 @@
 			<ul>
 				<li>Please complete the form to the left.</li>
 			</ul>
+		</div>
+		<div id="quote_mailer_container">
+			<button onclick="sendQuote()" class="subtle_gradient shadow-light">Please contact me about this quote!</button>
 		</div>
 	</div>
 </div>

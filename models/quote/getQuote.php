@@ -180,6 +180,51 @@ while($r = mysql_fetch_assoc($result)){
 	
 }
 
+//ADD IN ADDONS
+if($_GET['numAddons'] > 0){
+	
+	for($i=0; $i<$_GET['numAddons']; $i++){
+		
+		if($_GET['addon_' . $i]){
+			$sql = sprintf("SELECT UNIT_PRICE, PARENT_ID FROM F_ADDON WHERE ADDON_ID='%s'",
+				mysql_real_escape_string($_GET['addon_' . $i]));
+
+			$result = mysql_query($sql);
+			if(!result){
+				die('Invalid query: ' . mysql.error());
+			}
+
+			while($r = mysql_fetch_assoc($result)){
+
+				if($r['PARENT_ID']){
+
+					$sql2 = sprintf("SELECT UNIT_PRICE FROM F_ADDON WHERE ADDON_ID='%s'",
+						mysql_real_escape_string($r['PARENT_ID']));
+
+					$result2 = mysql_query($sql2);
+					if(!result2){
+						die('Invalid query: ' . mysql.error());
+					}
+
+					while($s = mysql_fetch_assoc($result2)){
+						$parentPrice = $s['UNIT_PRICE'];
+					}
+
+
+					foreach($quotes as &$q){
+						$q[2] += $parentPrice * $_GET['quantity'];
+					}
+
+				}else{
+				}
+
+				foreach($quotes as &$q){
+					$q[2] += $r['UNIT_PRICE'] * $_GET['quantity'];
+				}
+			}
+		}
+	}
+}
 
 print json_encode($quotes);
 

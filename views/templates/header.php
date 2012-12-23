@@ -48,8 +48,8 @@
 				
 				<div id="navigation" ><div id="navigation-inner" class="rounded-corners shadow">
 					<ul>
-						<li class="first"><a href="#">Get a Quote</a></li>
-						<li><a href="#">What We Do</a></li>
+						<li class="first"><a href="/quote/create">Get a Quote</a></li>
+						<li class=""><a href="#">What We Do</a></li>
 						<li class="last"><a href="#">Examples of Past Work</a></li>
 					</ul>
 				</div></div>
