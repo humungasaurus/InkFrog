@@ -7,3 +7,14 @@ $sql = "SELECT F_QUOTES.QUOTE_ID, F_QUOTES.NAME, F_QUOTES.EMAIL,
 			JOIN D_SHIRT_TYPE ON F_QUOTES.SHIRT_TYPE_ID = D_SHIRT_TYPE.SHIRT_TYPE_ID
 			JOIN D_COLOR ON F_QUOTES.COLOR_ID = D_COLOR.COLOR_ID
 		WHERE F_QUOTES.QUOTE_ID = '%s'";
+		
+		//clean up so we don't have to worry about re-using these names below
+		unset($sender);
+		unset($recipient);
+		unset($subject);
+		unset($text);
+		unset($html);
+		unset($headers);
+		unset($mime);
+		unset($body);
+		unset($mail);

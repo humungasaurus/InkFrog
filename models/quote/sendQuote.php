@@ -133,9 +133,39 @@
         $mail =& Mail::factory('mail');
         $mail->send($recipient, $headers, $body);
 
-
 		////////////////////////
 		//SEND EMAIL TO CUSTOMER
+		
+		// Constructing the email
+		$sender = "SB Press <mail@sbpress.statusbro.com>";                   // Your name and email address
+		$recipient = $rows[0]['EMAIL']; 		                    		 // The Recipients name and email address
+        $subject = "Quote Request Confirmation";            				 // Subject for the email
+        $text = "Hi " . $rows[0]['NAME'] . ", thanks for using our 
+				quoting tool.  One of our account managers will be in 
+				touch with you shortly regarding the quote you created.";    // Text version of the email
+        $html = 	"Hi " . $rows[0]['EMAIL'] . ", thanks for using our 
+					quoting tool.  One of our account managers will be in 
+					touch with you shortly regarding the quote you created."; // HTML version of the email
+        $crlf = "\n";
+        $headers = array(
+	    	'From'          => $sender,
+            'Return-Path'   => $sender,
+            'Subject'       => $subject
+		);
+
+		// Creating the Mime message
+		$mime = new Mail_mime($crlf);
+
+		// Setting the body of the email
+        $mime->setTXTBody($text);
+        $mime->setHTMLBody($html);
+
+        $body = $mime->get();
+        $headers = $mime->headers($headers);
+
+        // Sending the email
+        $mail =& Mail::factory('mail');
+        $mail->send($recipient, $headers, $body);
 		
 	}else{
 		die('Invalid query: ' . mysql.error());

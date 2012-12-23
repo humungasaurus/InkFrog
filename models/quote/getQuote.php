@@ -8,7 +8,7 @@ $quotes = array();
 //ESTABLISH BASE COUNTS
 $sql = "SELECT DISTINCT PRINTER_ID, PRINTER_NM FROM D_PRINTER";
 $result = mysql_query($sql);
-if(!result){
+if(!$result){
 	die('Invalid query: ' . mysql.error());
 }
 
@@ -18,7 +18,7 @@ while($r = mysql_fetch_assoc($result)){
 	array_push($tmp, $r['PRINTER_ID']);
 	array_push($tmp, $r['PRINTER_NM']);
 	
-	if(isset($_GET[quantity])){
+	if(isset($_GET['quantity'])){
 		array_push($tmp, $_GET['quantity']);
 	}else{
 		array_push($tmp, 1);
@@ -40,7 +40,7 @@ $sql = sprintf("SELECT PRICE_LEVEL FROM D_COLOR WHERE COLOR_ID=%s",
 	mysql_real_escape_string($_GET['shirtColor']));
 	
 $result = mysql_query($sql);
-if(!result){
+if(!$result){
 	die('Invalid query: ' . mysql.error());
 }
 
@@ -56,7 +56,7 @@ $sql = sprintf("SELECT MAX(MODEL_ID) AS MODEL_ID FROM M_TYPE_MODEL WHERE SHIRT_T
 	mysql_real_escape_string($_GET['shirtModel']));
 	
 $result = mysql_query($sql);
-if(!result){
+if(!$result){
 	die('Invalid query: ' . mysql.error());
 }
 while($r = mysql_fetch_assoc($result)){
@@ -68,7 +68,7 @@ $sql = sprintf("SELECT UNIT_PRICE FROM F_SHIRT_MODEL_PRICING WHERE MODEL_ID=%s A
 	mysql_real_escape_string($colorPriceLevel));
 	
 $result = mysql_query($sql);
-if(!result){
+if(!$result){
 	die('Invalid query: ' . mysql.error());
 }
 
@@ -99,7 +99,7 @@ $sql = sprintf("SELECT PRINTER_ID, UNIT_PRICE FROM F_PRINTER_PRICING WHERE MIN_C
 	mysql_real_escape_string($_GET['quantity']));
 
 $result = mysql_query($sql);
-if(!result){
+if(!$result){
 	die('Invalid query: ' . mysql.error());
 }
 
@@ -110,7 +110,7 @@ while($r = mysql_fetch_assoc($result)){
 		if($q[0] == $r['PRINTER_ID']){
 			
 			//check the print locations
-			$printLocaitons = 0;
+			$printLocations = 0;
 			if($_GET['frontColors']>0) $printLocations+=1;
 			if($_GET['backColors']>0) $printLocations+=1;
 			if($_GET['sleeveColors']>0) $printLocations+=1;
@@ -147,7 +147,7 @@ $sql = sprintf("SELECT PRINTER_ID, UNIT_PRICE FROM F_COLOR_PRICING WHERE MIN_CNT
 	mysql_real_escape_string($_GET['quantity']));
 	
 $result = mysql_query($sql);
-if(!result){
+if(!$result){
 	die('Invalid query: ' . mysql.error());
 }
 
@@ -158,8 +158,9 @@ while($r = mysql_fetch_assoc($result)){
 		if($q[0] == $r['PRINTER_ID']){
 			
 			//get the number of additional colors
+			$numColors = 0;
 			if($_GET['frontColors'] > 1)
-				$numColors = $_GET['frontColors'] - 1;
+				$numColors += $_GET['frontColors'] - 1;
 			if($_GET['backColors'] > 1)
 				$numColors += $_GET['backColors'] - 1;
 			if($_GET['sleeveColors'] > 1)
@@ -190,7 +191,7 @@ if($_GET['numAddons'] > 0){
 				mysql_real_escape_string($_GET['addon_' . $i]));
 
 			$result = mysql_query($sql);
-			if(!result){
+			if(!$result){
 				die('Invalid query: ' . mysql.error());
 			}
 
@@ -202,7 +203,7 @@ if($_GET['numAddons'] > 0){
 						mysql_real_escape_string($r['PARENT_ID']));
 
 					$result2 = mysql_query($sql2);
-					if(!result2){
+					if(!$result2){
 						die('Invalid query: ' . mysql.error());
 					}
 

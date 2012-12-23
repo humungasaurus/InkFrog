@@ -11,7 +11,7 @@ $sql = sprintf("SELECT F_ADDON.ADDON_ID, F_ADDON.ADDON_DESC, F_ADDON.HAS_CHILD, 
 		mysql_real_escape_string($shirtTypeId));
 		
 $result = mysql_query($sql);
-if(!result){
+if(!$result){
 	die('Invalid query: ' . mysql.error());
 }
 
@@ -29,7 +29,7 @@ foreach($rows as $w){
 			mysql_real_escape_string($w['ADDON_ID']));
 		
 		$result = mysql_query($sql);
-		if(!result){
+		if(!$result){
 			die('Invalid query: ' . mysql.error());
 		}
 
