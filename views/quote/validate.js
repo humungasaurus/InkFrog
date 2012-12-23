@@ -84,6 +84,7 @@ function validateQuoteFields(){
 		$('#front_colors').addClass("error");
 		$('#back_colors').addClass("error");
 		$('#sleeve_colors').addClass("error");
+		hasErrors = true;
 	}else{
 		if($('#front_colors').hasClass("error"))
 			$('#front_colors').removeClass("error");

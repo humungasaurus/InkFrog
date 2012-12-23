@@ -109,8 +109,8 @@
 		
 		</form>
 		<div id="quote_button_container" class="form-field-container">
-			<button onclick="resetForm()" class="subtle_gradient shadow-light">reset form</button>
-			<button onclick="getQuote()" class="subtle_gradient shadow-light">get quote</button>
+			<button onclick="resetForm()" class="subtle_gradient shadow-light button">reset form</button>
+			<button onclick="getQuote()" class="subtle_gradient shadow-light button">get quote</button>
 		</div>
 		
 	</div>

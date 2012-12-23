@@ -3,6 +3,7 @@ var shirtTypes = [];
 var numFrontColors, numBackColors, numSleeveColors;
 var selectedShirtType, selectedShirtColor;
 var hasAddonChild = false;
+var isQuoted = false;
 
 $(document).ready(function(){
 
@@ -23,6 +24,30 @@ $(document).ready(function(){
 	  $(this).parent().css('background-color', 'rgba(245,245,245,.75)');
 	});
 
+	$('button').mouseover(function(){
+		$(this).animate({opacity: .8}, 200);
+	});
+
+	$('button').mouseout(function(){
+		$(this).animate({opacity: 1}, 200);
+	});
+	
+	$('button').mousedown(function(){
+		$(this).css('border', '1px solid rgba(50,50,50,.25)');
+	})
+	
+	$('button').mouseup(function(){
+		$(this).css('border', '1px solid #ddd');
+	})
+
+	$('#navigation-inner li a').mouseover(function(){
+		$(this).animate({opacity: .9}, 100);
+	});
+
+	$('#navigation-inner li a').mouseout(function(){
+		$(this).animate({opacity: 1}, 100);
+	});
+	
 });
 
 function sendQuote(){
@@ -217,6 +242,7 @@ function getQuote(){
 				
 				$('#quote_value_container ul').append("<li><strong>Total Cost: $</strong><span id='total_price'>" + lowestQuote + "</span> ($<span id='unit_price'>" + unitPrice + "</span> per shirt)</li>");
 				$('#quote_value_container').append('<div id="lowest_printer_id" style="display:none;">' + lowestPrinterId + '</div>');
+				isQuoted = true;
 				/*for(var i=0; i<data.length; i++){
 					$('#quote_value_container ul').append("<li><strong>" + data[i][1] + ":</strong> $" + data[i][2] + "</li>");
 				}*/

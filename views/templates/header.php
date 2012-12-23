@@ -4,7 +4,10 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<!--jQuery-->
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	
 	<!--stylesheets-->
 	<link href="../views/css/reset.css" rel="stylesheet" type="text/css">
@@ -19,6 +22,9 @@
 	<!--import font face-->
 	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
 	
+	
+	<!--Javascript UI Functions-->
+	<!--<script src="../views/templates/ui_helpers.js"></script> -->
 	<?php
 	
 	//include scripts as specified by the current controller
