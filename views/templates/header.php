@@ -24,16 +24,24 @@
 	
 	
 	<!--Javascript UI Functions-->
-	<!--<script src="../views/templates/ui_helpers.js"></script> -->
+	<script src="../views/templates/ui_helpers.js"></script>
 	<?php
 	
 	//include scripts as specified by the current controller
-	if($_GET['controller'] = 'quote' && $_GET['method'] = 'create'){
+	if(isset($_GET['controller']) && $_GET['controller'] == 'quote'){
 		
 		//include the validation script
 		?>
 		<script src="../views/quote/formHelper.js"></script> 
 		<script src="../views/quote/validate.js"></script>
+		<?php
+	
+	}else if(isset($_GET['controller']) && $_GET['controller'] == 'portfolio'){
+		?>
+		<script src="../views/portfolio/jquery.lazyload.js"></script>
+		<script src="../views/portfolio/jquery-lightbox/js/jquery.lightbox-0.5.min.js"></script>
+		<script src="../views/portfolio/portfolioHelper.js"></script> 
+		<link rel="stylesheet" type="text/css" href="../views/portfolio/jquery-lightbox/css/jquery.lightbox-0.5.css" media="screen" />
 		<?php
 	}
 	
@@ -49,14 +57,15 @@
 			<div id="header_wrapper"><div id="header_inner" class="">
 			
 				<div id="logo">
-					<h2>SBpress</h2>
+					<a href='/'><img src="../views/assets/images/sbpress-logo.png" id="logo_img" alt="sb press"/></a>
 				</div>
 				
 				<div id="navigation" ><div id="navigation-inner" class="rounded-corners shadow">
 					<ul>
 						<li class="first"><a href="/quote/create">Get a Quote</a></li>
-						<li class=""><a href="#">What We Do</a></li>
-						<li class="last"><a href="#">Examples of Past Work</a></li>
+						<li class=""><a href="">What We Do</a></li>
+						<li class=""><a href="/portfolio/all">Examples of Past Work</a></li>
+						<li class="last"><a href="#">Contact Us</a></li>
 					</ul>
 				</div></div>
 			

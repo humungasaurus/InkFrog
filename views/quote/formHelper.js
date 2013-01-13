@@ -24,22 +24,6 @@ $(document).ready(function(){
 	  $(this).parent().css('background-color', 'rgba(245,245,245,.75)');
 	});
 
-	$('button').mouseover(function(){
-		$(this).animate({opacity: .8}, 200);
-	});
-
-	$('button').mouseout(function(){
-		$(this).animate({opacity: 1}, 200);
-	});
-	
-	$('button').mousedown(function(){
-		$(this).css('border', '1px solid rgba(50,50,50,.25)');
-	})
-	
-	$('button').mouseup(function(){
-		$(this).css('border', '1px solid #ddd');
-	})
-
 	$('#navigation-inner li a').mouseover(function(){
 		$(this).animate({opacity: .9}, 100);
 	});

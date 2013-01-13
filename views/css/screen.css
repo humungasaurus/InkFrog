@@ -13,6 +13,16 @@ h1{
 ul{
 	list-style-type: none;
 }
+.fade-in{
+}
+.content{
+	float:left;
+	padding:15px;
+	border: 1px solid rgba(240,240,240,.25);
+	background: rgba(225,225,230,.85);
+	font-size:18px;
+	line-height:22px;
+}
 .rounded-corners{
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -20,8 +30,8 @@ ul{
 }
 
 .shadow{
-	-webkit-box-shadow:  0px 0px 5px 5px rgba(0, 0, 0, .0);
-	box-shadow:  0px 0px 20px 0px rgba(0, 0, 0, .0);
+	-webkit-box-shadow:  0px 0px 5px 5px rgba(0, 0, 0, .2);
+	box-shadow:  0px 0px 20px 0px rgba(0, 0, 0, .2);
 }
 .shadow-light{
 	-webkit-box-shadow:  0px 0px 5px 5px rgba(0, 0, 0, .05);
@@ -65,6 +75,7 @@ html, body{
 }
 #header_wrapper #navigation-inner{
 	float: right;
+	margin:64px 0 0 0;
 }
 #main{
 	overflow:auto;
@@ -77,7 +88,35 @@ html, body{
 	margin-top: -180px; /* negative value of footer height */
 	height: 180px;
 	clear:both;
+}
+#footer_inner{
+	width:960px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+#footer{
+	color: #f5f5fa;
+}
+.footer-column{
+	width:25%;
+	float:left;
 } 
+#footer h4{
+	font-weight: 600;
+	font-size:18px;
+	opacity:.75;
+}
+#footer ul{
+	padding:7px 0 0 0;
+}
+#footer li{
+	padding: 3px 0;
+}
+#footer a{
+	color: #f5f5fa;
+	text-decoration:none;
+	opacity:.25;
+}
 
 /*Opera Fix*/
 body:before {/* thanks to Maleika (Kohoutec)*/
@@ -89,7 +128,7 @@ body:before {/* thanks to Maleika (Kohoutec)*/
 }
 
 /*LAYOUT STYLING*/
-#main{
+#wrap{
 	background: #0079a5;
 }
 #footer{
@@ -103,7 +142,7 @@ body:before {/* thanks to Maleika (Kohoutec)*/
 #navigation-inner ul li{
 	float: left;
 	margin: 0 1px;
-	background:rgba(225,225,230,.75);
+	background:rgba(225,225,230,.85);
 	border: 1px solid rgba(240,240,240,.25);
 }
 #navigation-inner ul li a{
@@ -111,10 +150,10 @@ body:before {/* thanks to Maleika (Kohoutec)*/
 	text-decoration: none;
 	color:#333;
 	font-size:18px;
-	padding:10px 30px;
+	padding:10px 20px;
 }
 #navigation-inner ul li.first{
-	background: rgba(255,192,0,.85);
+	background: rgba(255,192,0,.9);
 	-webkit-border-top-left-radius: 8px;
 	-webkit-border-bottom-left-radius: 8px;
 	-moz-border-radius-topleft: 8px;
@@ -152,7 +191,7 @@ input.text-input{
 input.text-input:focus{
 	background: #fff;
 }
-button{
+button, input.submit{
 	height:40px;
 	border: 1px solid #ddd;
 	background: rgb(245,245,245);
@@ -162,7 +201,7 @@ button{
 	border-radius: 5px;
 	font-size:20px;
 	color: rgba(51,51,51,.75);
-	padding: 0px 15px 4px;
+	padding: 0px 10px 4px;
 	cursor:pointer;
 	outline:none;
 	margin:0 10px 0 0;
@@ -223,17 +262,11 @@ select.color-selector.sleeve{
 #form_wrapper{
 	width:500px;
 	float:left;
-	padding: 15px;
 	margin-right:26px;
-	border: 1px solid rgba(240,240,240,.25);
-	background: rgba(225,225,230,.75);;
 }
 #result_wrapper{
 	width:370px;
 	float:left;
-	padding:15px;
-	border: 1px solid rgba(240,240,240,.25);
-	background: rgba(225,225,230,.75);
 }
 #quote_form .form-field-container{
 	width:100%;
@@ -245,7 +278,7 @@ select.color-selector.sleeve{
 	width:190px;
 }
 #quote_form .form-field-container input.text-input{
-	width:290px;
+	width:58%;
 }
 #shirt_gender_container, #shirt_color_container, #shirt_model_container, #shirt_type_container{
 	display:none;
@@ -285,3 +318,21 @@ select.color-selector.sleeve{
 	font-size: 19px;
 }
 /*END QUOTE FORM*/
+
+/*MAILING LIST FORM STYLING*/
+#join_mailing_list_form {
+	padding: 7px 0;
+}
+#join_mailing_list_form input{
+	width:100%;
+	margin:8px 0 10px 0;
+}
+/*END MAILING LIST FORM*/
+
+/*PORTFOLIO STYLYING*/
+#portfolio_container{
+	width:960px;
+	margin:0 auto;
+	padding:20px 0 0 0;
+}
+/*END PORTFOLIO STYLING*/

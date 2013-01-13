@@ -1,6 +1,6 @@
 <!-- Markup for Quote Form -->
 <div id="quote_form_container">
-	<div id="form_wrapper"class="rounded-corners shadow">
+	<div id="form_wrapper"class="rounded-corners shadow content">
 		<h1>1. Complete the form:</h1>
 		<form action="" name="quote_form" id="quote_form">
 		
@@ -115,7 +115,7 @@
 		
 	</div>
 	
-	<div id="result_wrapper" class="rounded-corners shadow">
+	<div id="result_wrapper" class="rounded-corners shadow content">
 		<div id="quote_value_container">
 			<h1>2. Get a quote:</h1>
 			<ul>

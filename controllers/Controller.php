@@ -28,6 +28,14 @@ class Controller{
 				
 			}
 			
+		}elseif($_GET['controller'] == 'portfolio'){
+			
+			if(!isset($_GET['method']) || $_GET['method'] == 'all'){
+				include('views/templates/header.php');
+				include('views/portfolio/portfolio_all.view.php');
+				include('views/templates/footer.php');
+			}
+			
 		}
 	}
 }
